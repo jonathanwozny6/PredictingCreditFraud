@@ -1,1 +1,7 @@
 # PredictingCreditFraud
+
+This project is an attempt at the Wells Fargo 2021 Campus Analytics Challenge (https://www.mindsumo.com/contests/campus-analytics-challenge-2021). This was done after the competition was concluded, but before the final results were released. The data set provided was removed from the competition site and thus, will not be posted in the repository.
+
+Each sample in the data set contains information about a specific transaction; if the transaction was fraudulent, it has the label FRAUD and NON_FRAUD otherwise. The challenge is to create a machine learning model that given the transformed data can predict accurately whether any given transaction is fraudulent. From the competition directions, the aim is to obtain the highest F1-score (this is 2*precision*recall/(2+precision+recall)). 
+
+This attempt used RandomForestClassifier from sklearn, in combination with AdaBoostClassifier to achieve an F1-score of ~97% for test and validation data sets (from train, test, val split of the provided training data). Feature engineering and selection techniques were applied to find features of most importance. Performing this step simplified the model and increased the model accuracy from ~86% with a RandomForestClassifier used for the data without feature engineering or selection techniques applied. The most effective added feature was the transaction amount times a boolean indicating whether or not the transaction occurred in the home state of the customer.
